@@ -28,6 +28,17 @@ There are two things you can do about this warning:
 (setq initial-scratch-message nil)
 (set-face-attribute 'default nil :height 150)
 
+;; Window movement config
+;; M-o works like C-x o to move to the other window
+(global-set-key (kbd "M-o") 'other-window)
+;; This allows directional selection with Shift:
+;; S-<left>, S-<right>, S-<up>, S-<down>
+(windmove-default-keybindings)
+
+;; Org-Mode config
+(setq org-log-done 'time)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
 ;; turn on which-key
 (which-key-mode)
 (setq which-key-popup-type 'minibuffer)
