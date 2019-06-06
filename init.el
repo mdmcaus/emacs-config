@@ -28,6 +28,14 @@ There are two things you can do about this warning:
 (setq initial-scratch-message nil)
 (set-face-attribute 'default nil :height 150)
 
+;; Load ivy
+(ivy-mode 1)
+
+(use-package ivy :demand
+    :config
+    (setq ivy-use-virtual-buffers t
+          ivy-count-format "%d/%d "))
+
 ;; Load Backup file config
 
 (load "~/.emacs.d/backup.el")
@@ -61,7 +69,9 @@ There are two things you can do about this warning:
    (quote
     ("862a0ccc73c12df4df325427f9285fa6a5bbba593a77257f43b01c84269f51b0" "8d8423e863b3fbc6346758d726bae66b3d2bacac526067d7d8f2d710203066eb" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" default)))
  '(fci-rule-color "#14151E")
- '(package-selected-packages (quote (which-key kooten-theme dracula-theme)))
+ '(package-selected-packages
+   (quote
+    (use-package ivy which-key kooten-theme dracula-theme)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
