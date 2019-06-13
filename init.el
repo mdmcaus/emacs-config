@@ -21,12 +21,22 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (setq inhibit-startup-message t) 
 (setq initial-scratch-message nil)
 (set-face-attribute 'default nil :height 150)
+
+;; Get rid of scroll-bars when creating a new frame
+(defun my/disable-scroll-bars (frame)
+  (modify-frame-parameters frame
+                           '((vertical-scroll-bars . nil)
+                             (horizontal-scroll-bars . nil))))
+
+(add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
 ;; Load ivy
 (ivy-mode 1)
