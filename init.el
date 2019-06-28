@@ -55,6 +55,9 @@ There are two things you can do about this warning:
 ;; M-o works like C-x o to move to the other window
 (global-set-key (kbd "M-o") 'other-window)
 
+;; C-x g for 'magit-status
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; This allows directional selection with Shift:
 ;; S-<left>, S-<right>, S-<up>, S-<down>
 (windmove-default-keybindings)
@@ -81,7 +84,7 @@ There are two things you can do about this warning:
  '(fci-rule-color "#14151E")
  '(package-selected-packages
    (quote
-    (use-package ivy which-key kooten-theme dracula-theme)))
+    (magit use-package ivy which-key kooten-theme dracula-theme)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
